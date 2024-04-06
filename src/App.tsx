@@ -1,9 +1,10 @@
 import "./App.css";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 
 function App() {
   return (
     <>
-      <h2>Game Hive</h2>
+      <Button colorScheme="blue">Button</Button>
     </>
   );
 }
