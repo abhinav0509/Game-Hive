@@ -8,12 +8,11 @@ import {
 } from "@chakra-ui/react";
 import getOptimisedImage from "../services/image-optimise";
 import useGenres, { Genre } from "../hooks/useGenres";
-import useData from "../hooks/useData";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
 }
-const GenreList = () => {
+const GenreList = ({ onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (isLoading) return <Spinner />;
@@ -32,7 +31,7 @@ const GenreList = () => {
             <Button
               fontSize="md"
               variant="link"
-              // onClick={() => onSelectGenre(genre)}
+              onClick={() => onSelectGenre(genre)}
             >
               {genre.name}
             </Button>
