@@ -19,6 +19,7 @@ const useData = <T>(
   useEffect(
     () => {
       const controller = new AbortController();
+
       setIsLoading(true);
       apiClient
         .get<FetchResponse<T>>(endpoint, {
@@ -34,10 +35,12 @@ const useData = <T>(
           setError(err.message);
           setIsLoading(false);
         });
-      return () => controller.abort;
+
+      return () => controller.abort();
     },
     deps ? [...deps] : []
   );
+
   return { data, error, isLoading };
 };
 
